@@ -1,0 +1,270 @@
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+
+public final class Registration_005fForm_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+  private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
+
+  private static java.util.Vector _jspx_dependants;
+
+  private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
+
+  public Object getDependants() {
+    return _jspx_dependants;
+  }
+
+  public void _jspService(HttpServletRequest request, HttpServletResponse response)
+        throws java.io.IOException, ServletException {
+
+    PageContext pageContext = null;
+    HttpSession session = null;
+    ServletContext application = null;
+    ServletConfig config = null;
+    JspWriter out = null;
+    Object page = this;
+    JspWriter _jspx_out = null;
+    PageContext _jspx_page_context = null;
+
+    try {
+      response.setContentType("text/html");
+      pageContext = _jspxFactory.getPageContext(this, request, response,
+      			null, true, 8192, true);
+      _jspx_page_context = pageContext;
+      application = pageContext.getServletContext();
+      config = pageContext.getServletConfig();
+      session = pageContext.getSession();
+      out = pageContext.getOut();
+      _jspx_out = out;
+      _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
+
+      out.write("<html>\n");
+      out.write("<head>\n");
+      out.write("<script>\n");
+      out.write("function validateUserId() {\n");
+      out.write("    var x = document.forms[\"myForm\"][\"t2\"].value;\n");
+      out.write("    var letters = /^[a-zA-Z]+$/;\n");
+      out.write("    if (x == \"\") {\n");
+      out.write("        document.getElementById(\"checkuser\").innerHTML = \"Please fill out this field!\";\n");
+      out.write("        return false;\n");
+      out.write("    } \n");
+      out.write("    else if (!x.match(/^[a-zA-Z]+$/)) \n");
+      out.write("    {\n");
+      out.write("       document.getElementById(\"checkuser\").innerHTML = \"Name should contain only alphabets!\";     \n");
+      out.write("        return false;\n");
+      out.write("    }\n");
+      out.write("    else {\n");
+      out.write("        return true;\n");
+      out.write("    }\n");
+      out.write("    \n");
+      out.write(" }\n");
+      out.write("function validateradio() {\n");
+      out.write("    var radios = document.getElementsByName(\"yesno\");\n");
+      out.write("    var formValid = false;\n");
+      out.write("\n");
+      out.write("    var i = 0;\n");
+      out.write("    while (!formValid && i < radios.length) {\n");
+      out.write("        if (radios[i].checked) formValid = true;\n");
+      out.write("        i++;        \n");
+      out.write("    }\n");
+      out.write("\n");
+      out.write("    if (!formValid) alert(\"Must check some option!\");\n");
+      out.write("    return formValid;\n");
+      out.write("}\n");
+      out.write("function validateForm() {\n");
+      out.write("    var x = document.forms[\"myForm\"][\"t1\"].value;\n");
+      out.write("    var letters = /^[a-zA-Z]+$/;\n");
+      out.write("    if (x == \"\") {\n");
+      out.write("        document.getElementById(\"check\").innerHTML = \"Please fill out this field!\";\n");
+      out.write("        return false;\n");
+      out.write("    } \n");
+      out.write("    else if (!x.match(/^[a-zA-Z]+$/)) \n");
+      out.write("    {\n");
+      out.write("       document.getElementById(\"check\").innerHTML = \"Name should contain only alphabets!\";     \n");
+      out.write("        return false;\n");
+      out.write("    }\n");
+      out.write("    else {\n");
+      out.write("        return true;\n");
+      out.write("    }\n");
+      out.write("}\n");
+      out.write("function validatePno()\n");
+      out.write("{\n");
+      out.write(" var x=document.forms[\"myForm\"][\"t5\"].value;\n");
+      out.write(" var n=x.length;\n");
+      out.write(" if(n<10||n>10)\n");
+      out.write("    {\n");
+      out.write("\t  document.getElementById(\"checkpno\").innerHTML = \"Enter a 10 digit number!\";\n");
+      out.write("          return false;\n");
+      out.write("\t}\n");
+      out.write(" else if(n==10){\n");
+      out.write("      document.getElementById(\"checkpno\").innerHTML = \"\";\n");
+      out.write("        return true;\n");
+      out.write("    } \n");
+      out.write("\n");
+      out.write(" //var phoneno = /^\\d{10}$/;  \n");
+      out.write("  if(isNaN(x)||x.indexOf(\" \")!=-1)  \n");
+      out.write("        {  \n");
+      out.write("\t\tdocument.getElementById(\"checkpno1\").innerHTML = \"Phone number has to be numeric!\";  \n");
+      out.write("        return false;\n");
+      out.write("        \n");
+      out.write("        }  \n");
+      out.write("      else  \n");
+      out.write("        {  \n");
+      out.write("          document.getElementById(\"checkpno1\").innerHTML = \"\";  \n");
+      out.write("         return true; \n");
+      out.write("        }  \n");
+      out.write("}\t  \n");
+      out.write("function validateEid()\n");
+      out.write("{\n");
+      out.write("var x = document.forms[\"myForm\"][\"t3\"].value;\n");
+      out.write("    var atpos = x.indexOf(\"@\");\n");
+      out.write("    var dotpos = x.lastIndexOf(\".\");\n");
+      out.write("    if (atpos<1 || dotpos<atpos+2 || dotpos+3>=x.length) {\n");
+      out.write("        document.getElementById(\"checkeid\").innerHTML = \"Please enter a valid emailid.\";\n");
+      out.write("        return false;\n");
+      out.write("    }\n");
+      out.write("    else\n");
+      out.write("\t{\n");
+      out.write("\tdocument.getElementById(\"checkeid\").innerHTML = \"\";\n");
+      out.write("        return true;\n");
+      out.write("\t}\n");
+      out.write("}\n");
+      out.write("function validatePwd()\n");
+      out.write("{\n");
+      out.write("\n");
+      out.write("var x=document.forms[\"myForm\"][\"pwd\"].value;\n");
+      out.write(" var n=x.length;\n");
+      out.write(" if(n<6)\n");
+      out.write("    {\n");
+      out.write("\t  document.getElementById(\"checkpwd\").innerHTML = \"password length should be minimum 6\";\n");
+      out.write("        \n");
+      out.write("\t}\n");
+      out.write(" else {\n");
+      out.write("     document.getElementById(\"checkpwd\").innerHTML = \"\";\n");
+      out.write("        return true;\n");
+      out.write("    } \n");
+      out.write("}\n");
+      out.write("function MatchPwd()\n");
+      out.write("{\n");
+      out.write("var x = document.forms[\"myForm\"][\"pwd\"].value;\n");
+      out.write("var y = document.forms[\"myForm\"][\"pwd1\"].value;\n");
+      out.write("if(x!=y) {\n");
+      out.write("        document.getElementById(\"checkpwd1\").innerHTML = \"passwords dont match\";\n");
+      out.write("\t\tdocument.getElementById(\"pwd\").value = \"\";\n");
+      out.write("\t\tdocument.getElementById(\"pwd1\").value = \"\";\n");
+      out.write("        myForm.pwd.focus();\n");
+      out.write("        return false;}\n");
+      out.write("\t\telse\n");
+      out.write("\t\tdocument.getElementById(\"checkpwd1\").innerHTML = \"passwords match\";\n");
+      out.write("}\n");
+      out.write("</script>\n");
+      out.write("<style>\n");
+      out.write("table {\n");
+      out.write("    background-color: #DFDFDF;\n");
+      out.write("    padding: 70px 50px;\n");
+      out.write("    width : 800;\n");
+      out.write("}input[type=submit] {\n");
+      out.write("    padding: 5px 10px;\n");
+      out.write("    text-decoration: none;\n");
+      out.write("    margin: 0px 50px;\n");
+      out.write("    cursor: pointer;    \n");
+      out.write("}\n");
+      out.write("input[type=radio] {\n");
+      out.write("    \n");
+      out.write("    \n");
+      out.write("}\n");
+      out.write("input[type=text], [type=email], [type=password] {\n");
+      out.write("    width: 40%;\n");
+      out.write("    padding: 12px 5px;\n");
+      out.write("    margin: 8px 0px;\n");
+      out.write("    display: inline-block;\n");
+      out.write("    border: 1px solid #ccc;\n");
+      out.write("    border-radius: 4px;\n");
+      out.write("    box-sizing: border-box;\n");
+      out.write("}\n");
+      out.write("#footer {\n");
+      out.write("   position:fixed;\n");
+      out.write("   bottom:0;\n");
+      out.write("   width:100%;\n");
+      out.write("   height:60px;\n");
+      out.write("   background-color: #47B0CB;\n");
+      out.write("}\n");
+      out.write("ul {\n");
+      out.write("    list-style-type: none;\n");
+      out.write("    margin: 0;\n");
+      out.write("    padding: 0;\n");
+      out.write("    overflow: hidden;\n");
+      out.write("    background-color: #47B0CB;\n");
+      out.write("}\n");
+      out.write("\n");
+      out.write("li {\n");
+      out.write("    float: right;\n");
+      out.write("}\n");
+      out.write("\n");
+      out.write("li a {\n");
+      out.write("    display: block;\n");
+      out.write("    color: white;\n");
+      out.write("    text-align: center;\n");
+      out.write("    padding: 30px 15px;\n");
+      out.write("    text-decoration: none;\n");
+      out.write("}\n");
+      out.write("li.title{\n");
+      out.write("    float : left;\n");
+      out.write("    text-align : center;\n");
+      out.write("    color : white;\n");
+      out.write("    padding: 30px 15px;\n");
+      out.write("}\n");
+      out.write("li a:hover {\n");
+      out.write("    background-color: #899193;\n");
+      out.write("}\n");
+      out.write("</style>\n");
+      out.write("</head>\n");
+      out.write("<body>\n");
+      out.write("<ul>\n");
+      out.write("<li class=\"title\"><font face=\"Comic Sans MS\" size=\"5\"><b>FRESHERS GUIDE</b></font></li>\n");
+      out.write("<li><a href=\"contact.jsp\">Call Us : (+91) 9672116541</a></li>\n");
+      out.write("<li><a href=\"Registration_Form.jsp\">Register</a></li>\n");
+      out.write("<li><a href=\"Login_Form1.jsp\">Login</a></li>\n");
+      out.write("<li><a href=\"Home.jsp\">Home</a></li>\n");
+      out.write("</ul>\n");
+      out.write("<center>\n");
+      out.write("<table>\n");
+      out.write("<tr>\n");
+      out.write("<td></td><td></td><td>\n");
+      out.write("<font color=\"red-white\" face=\"Comic Sans MS\" size=\"6\">Register</font><br><br></td></tr><tr><td>\n");
+      out.write("<form action=\"MakeServiceEntry\"  onSubmit=\"return validateForm()\" name=\"myForm\">\n");
+      out.write("<input type=\"radio\" name=\"type\" value=\"user\"> <font face=\"Comic Sans MS\">User</td><td> <input type=\"radio\" name=\"type\" value=\"sp\">Service Provider</font><br><br></td></tr>\n");
+      out.write("<tr><td><font face=\"Comic Sans MS\">Enter Full Name :</font></td><td>        <input style=\"border-radius : 4px\" onfocusout=\"validateForm()\" type=\"text\" placeholder=\"enter full name\" name=\"t1\"></td><td><font color=\"red\"><span id=\"check\"> </span></font><br></td></tr>\n");
+      out.write("<tr><td><font face=\"Comic Sans MS\">Enter Username  :</font></td><td>         <input style=\"border-radius : 4px\" onfocusout=\"validateUserId()\" type=\"text\" placeholder=\"enter username\" name=\"t2\"></td><td><font color=\"red\"><span id=\"checkuser\"></span></font><br></td></tr>\n");
+      out.write("<tr><td><font face=\"Comic Sans MS\">Enter Email id  :</font></td><td>        <input  onfocusout=\"validateEid()\" style=\"border-radius : 4px\" type=\"email\" placeholder=\"enter id\" name=\"t3\"></td><td><font color=\"red\"><span id=\"checkeid\"> </span></font><br></td></tr>\n");
+      out.write("<tr><td><font face=\"Comic Sans MS\">Enter Password  :</font></td><td>         <input id=\"pwd\" onfocusout=\"validatePwd()\" style=\"border-radius : 4px\" type=\"password\" placeholder=\"enter password\" name=\"t4\"></td><td><font color=\"red\"><span id=\"checkpwd\"> </span></font><br></td></tr>\n");
+      out.write("<tr><td><font face=\"Comic Sans MS\">Re-Enter Password :</font></td><td>       <input  id=\"pwd1\" onfocusout=\"MatchPwd()\" style=\"border-radius : 4px\" type=\"password\" placeholder=\"re-enter password\"></td><td><font color=\"red\"><span id=\"checkpwd1\"></span></font><br></td></tr>\n");
+      out.write("<tr><td><font face=\"Comic Sans MS\">Enter Contact Number:</font></td><td>    <input  onfocusout=\"validatePno()\" style=\"border-radius : 4px\" type=\"text\" placeholder=\"enter contact number\" name=\"t5\"></td><td><font color=\"red\"><span id=\"checkpno\"></span><span id=\"checkpno1\"></span></font><br></td></tr>\n");
+      out.write("<tr><td></td><td><input style=\"border-radius : 4px\" type=\"submit\" value=\"submit\" name=\"button\"></td>\n");
+      out.write("</form>\n");
+      out.write("</tr>\n");
+      out.write("</table>\n");
+      out.write("</center>\n");
+      out.write("<ul id=\"footer\">\n");
+      out.write("<li><a href=\"contact.jsp\">Contact Us</a></li>\n");
+      out.write("<li><a href=\"about.jsp\">About Us</a></li>\n");
+      out.write("<li><a href=\"terms.jsp\">Privacy & Terms</a></li>\n");
+      out.write("</ul>\n");
+      out.write("</body>\n");
+      out.write("</html>");
+    } catch (Throwable t) {
+      if (!(t instanceof SkipPageException)){
+        out = _jspx_out;
+        if (out != null && out.getBufferSize() != 0)
+          out.clearBuffer();
+        if (_jspx_page_context != null) _jspx_page_context.handlePageException(t);
+        else throw new ServletException(t);
+      }
+    } finally {
+      _jspxFactory.releasePageContext(_jspx_page_context);
+    }
+  }
+}
